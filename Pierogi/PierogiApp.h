@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Utilities.h"
+#include "PRWindow.h"
 
 namespace pr {
 	template<typename T>
@@ -17,6 +18,7 @@ namespace pr {
 		PierogiApp();
 		inline static PierogiApp* sInstance{ nullptr };
 		bool mShouldContinue{ true };
+		PRWindow mWindow;
 	};
 }
 

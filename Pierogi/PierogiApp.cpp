@@ -26,8 +26,13 @@ namespace pr {
 	template<typename T>
 	void PierogiApp<T>::Run() {
 
+		mWindow.CreateWindow("Game_FT Window", 800, 600);
+
 		while (mShouldContinue) {
 			OnUpdate();
+
+			mWindow.swapBuffers();
+			mWindow.pollEvents();
 		}
 	}
 }

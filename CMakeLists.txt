@@ -9,6 +9,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 add_subdirectory(Pierogi)
 add_subdirectory(Game_FT)
+add_subdirectory(glfw)
 
 if(WIN32)
 	add_definitions(-DPIEROGI_MSCPP)
@@ -18,5 +19,5 @@ elseif(APPLE)
 	add_definitions(-DPIEROGI_APPLE)
 endif()
 
-set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT )
+set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT Game_FT)
 
