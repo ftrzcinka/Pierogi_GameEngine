@@ -5,7 +5,7 @@
 
 namespace pr {
 	template<typename T>
-	class PIEROGI_API PierogiApp {
+	class PierogiApp {
 	public:
 		static void Init();
 		static void RunInterface();

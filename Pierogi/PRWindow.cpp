@@ -5,7 +5,13 @@
 namespace pr {
 	PRWindow::PRWindow()
 	{
+#ifdef PIEROGI_MSCPP
 		mImplementation = std::unique_ptr<WindowImplementation>{ new GLFWImplementation };
+#elif PIEROGI_APPLE
+		mImplementation = std::unique_ptr<WindowImplementation>{ new GLFWImplementation };
+#elif PIEROGI_LINUX
+		mImplementation = std::unique_ptr<WindowImplementation>{ new GLFWImplementation };
+#endif
 	}
 	void PRWindow::CreateWindow(const std::string& name, int height, int width)
 	{

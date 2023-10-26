@@ -14,6 +14,7 @@ set(SOURCE_FILES
 
 add_definitions(-DPR_DEBUG=2)
 add_definitions(-DPIEROGI_LIB)
+add_definitions(-DPIEROGI_MSCPP)
 
 include_directories(../Pierogi)
 include_directories(../glfw/include)
