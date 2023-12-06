@@ -12,7 +12,7 @@ namespace pr {
 	}
 
 	void GLFWImplementation::CreateWindow(const std::string& name, int width, int height) {
-		mWindow = glfwCreateWindow(800, 600, "Game_FT", NULL, NULL);
+		mWindow = glfwCreateWindow(width, height, name.c_str(), NULL, NULL);
 		glfwMakeContextCurrent(mWindow);
 	}
 	int GLFWImplementation::GetHeight() const
