@@ -16,11 +16,11 @@ namespace pr{
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 		stbi_set_flip_vertically_on_load(true);
-		int width, height, numColChan;
-		unsigned char* data = stbi_load(textureFile.c_str(), &width, &height, &numColChan, 0);
+		int numColChan;
+		unsigned char* data = stbi_load(textureFile.c_str(), &mWidth, &mHeight, &numColChan, 0);
 
 		if (data) {
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, mWidth, mHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 			glGenerateMipmap(GL_TEXTURE_2D);
 		}
 		else {
@@ -38,11 +38,11 @@ namespace pr{
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 		stbi_set_flip_vertically_on_load(true);
-		int width, height, numColChan;
-		unsigned char* data = stbi_load(textureFile.c_str(), &width, &height, &numColChan, 0);
+		int numColChan;
+		unsigned char* data = stbi_load(textureFile.c_str(), &mWidth, &mHeight, &numColChan, 0);
 
 		if (data) {
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, mWidth, mHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 			glGenerateMipmap(GL_TEXTURE_2D);
 		}
 		else {
@@ -55,6 +55,14 @@ namespace pr{
 	void OpenGLPicture::Bind()
 	{
 		glBindTexture(GL_TEXTURE_2D, mPictureTexture);
+	}
+	int OpenGLPicture::getWidth() const
+	{
+		return mWidth;
+	}
+	int OpenGLPicture::getHeight() const
+	{
+		return mHeight;
 	}
 	OpenGLPicture::~OpenGLPicture()
 	{

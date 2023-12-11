@@ -1,9 +1,9 @@
 #version 330 core
 			
 in vec2 TexCoord;
-uniform sampler20 picture;
+uniform sampler2D picture;
 
-out vec4 FreagColor;
+out vec4 FragColor;
 			
 void main()
 {
