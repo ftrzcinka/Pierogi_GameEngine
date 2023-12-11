@@ -3,6 +3,7 @@
 #include "Utilities.h"
 #include "pch.h"
 #include "WindowImplementation.h"
+#include "Events.h"
 
 namespace pr {
 	class PIEROGI_API PRWindow {
@@ -13,6 +14,10 @@ namespace pr {
 		int GetWidth() const;
 		void swapBuffers();
 		void pollEvents();
+
+		void SetKeyPressedCallback(std::function<void(const KeyPressed&)> callbackFunc);
+		void SetKeyReleasedCallback(std::function<void(const KeyReleased&)> callbackFunc);
+		void SetWindowClosedCallback(std::function<void()> callbackFunc);
 
 	private:
 		std::unique_ptr<WindowImplementation> mImplementation{ nullptr };

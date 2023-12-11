@@ -9,6 +9,8 @@ namespace pr {
 		Picture(const std::string& textureFile);
 		Picture(std::string&& textureFile);
 		void Bind();
+		int getWidth() const;
+		int getHeight() const;
 	private:
 		std::unique_ptr<PictureImplementation> mImplementation;
 	};

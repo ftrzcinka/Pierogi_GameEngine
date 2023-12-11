@@ -13,7 +13,7 @@ namespace pr {
 		mImplementation = std::unique_ptr<WindowImplementation>{ new GLFWImplementation };
 #endif
 	}
-	void PRWindow::CreateWindow(const std::string& name, int height, int width)
+	void PRWindow::CreateWindow(const std::string& name, int width, int height)
 	{
 		mImplementation->CreateWindow(name, width, height);
 	}
@@ -34,6 +34,21 @@ namespace pr {
 	void PRWindow::pollEvents()
 	{
 		mImplementation->PollEvents();
+	}
+
+	void PRWindow::SetKeyPressedCallback(std::function<void(const KeyPressed&)> callbackFunc)
+	{
+		mImplementation->SetKeyPressedCallback(callbackFunc);
+	}
+
+	void PRWindow::SetKeyReleasedCallback(std::function<void(const KeyReleased&)> callbackFunc)
+	{
+		mImplementation->SetKeyReleasedCallback(callbackFunc);
+	}
+
+	void PRWindow::SetWindowClosedCallback(std::function<void()> callbackFunc)
+	{
+		mImplementation->SetWindowClosedCallback(callbackFunc);
 	}
 
 

@@ -27,4 +27,12 @@ namespace pr {
 	void Picture::Bind() {
 		mImplementation->Bind();
 	}
+	int Picture::getWidth() const
+	{
+		return mImplementation->getWidth();
+	}
+	int Picture::getHeight() const
+	{
+		return mImplementation->getHeight();
+	}
 }
