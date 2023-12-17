@@ -276,7 +276,7 @@ void BattleBoard::establishShip2()
 			}
 		}
 	}
-	std::cout << "Ship 2: " << ship2.startTile << "  " << ship2.endTile << std::endl;
+	//std::cout << "Ship 2: " << ship2.startTile << "  " << ship2.endTile << std::endl;
 }
 
 void BattleBoard::establishShip3()
@@ -311,5 +311,5 @@ void BattleBoard::establishShip3()
 		ship3.endTile = ship3.startTile + 12;
 
 	}
-	std::cout << "Ship 3: " << ship3.startTile << "  " << ship3.middleTile << "  " << ship3.endTile << std::endl;
+	//std::cout << "Ship 3: " << ship3.startTile << "  " << ship3.middleTile << "  " << ship3.endTile << std::endl;
 }
