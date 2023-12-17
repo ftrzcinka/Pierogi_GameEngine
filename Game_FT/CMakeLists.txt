@@ -1,9 +1,12 @@
 set(HEADER_FILES
-	
+	BattleBoard.h
+	Tile.h
 )
 
 set(SOURCE_FILES
 	main.cpp
+	BattleBoard.cpp
+	Tile.cpp
 )
 
 add_executable(Game_FT ${HEADER_FILES} ${SOURCE_FILES})
