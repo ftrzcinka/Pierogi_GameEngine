@@ -1,5 +1,6 @@
 #include "Pierogi.h"
-#include<iostream>
+#include "Tile.h"
+#include "BattleBoard.h"
 
 class MyGame : public pr::PierogiApp<MyGame> {
 public:
@@ -10,22 +11,46 @@ public:
 
 	virtual void OnUpdate() override {
 		//std::cout << "Updating..." << std::endl;
-		Draw(mUnit);
+		DrawBoard();
 	}
 
 	void OnKeyPress(const pr::KeyPressed& e) {
 		if (e.getKeyCode() == PIEROGI_KEY_RIGHT) {
-			mUnit.UpdateXCoor(50);
-			std::cout << "Right Key Clicked" << std::endl;
+			board.moveRight();
 		}
 		else if (e.getKeyCode() == PIEROGI_KEY_LEFT) {
-			mUnit.UpdateXCoor(-50);
-			std::cout << "Left Key Clicked" << std::endl;
+			board.moveLeft();
+		}
+		else if (e.getKeyCode() == PIEROGI_KEY_DOWN) {
+			board.moveDown();
+		}
+		else if (e.getKeyCode() == PIEROGI_KEY_UP) {
+			board.moveUp();
+		}
+		else if (e.getKeyCode() == PIEROGI_KEY_ENTER) {
+			board.shoot();
+		}
+		else if (e.getKeyCode() == PIEROGI_KEY_R) {
+			board.restart();
 		}
 	}
 
 private:
-	pr::Unit mUnit{ "../Assets/Images/test.png" , 100, 100 };
+	BattleBoard board;
+	pr::Unit title{ "../Assets/Images/title.png", 2, 620 };
+	pr::Unit description{"../Assets/Images/description.png", 1000, 45};
+	pr::Unit shotsLabel{ "../Assets/Images/shotsleft.png", 950, 10 };
+
+	void DrawBoard() {
+		Draw(2, 630, board.getTitleCard());
+		Draw(description);
+		Draw(shotsLabel);
+		Draw(1170, 13, board.getShotsLeftPic());
+		for (short i = 0; i < 24; i++) {
+			Draw(board.getCurrXCoord(i), board.getCurrYCoord(i), board.getTilePic(i));
+		}
+	}
+
 };
 
 PIEROGI_APPLICATION_START(MyGame);

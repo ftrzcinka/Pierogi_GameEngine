@@ -15,7 +15,7 @@ namespace pr {
 
 	template<typename T>
 	PierogiApp<T>::PierogiApp() {
-		mWindow.CreateWindow("Game_FT Window", 1000, 800);
+		mWindow.CreateWindow("Game_FT Window", 1500, 800);
 
 		mRenderer.Init();
 
