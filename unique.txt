@@ -4,6 +4,7 @@ There are 24 tiles (4x6) and hidden within the board are two enemy ships.
 One is 2 tiles long and the other is 3 tiles long.
 The enemy ship locations are randomly generated and are made sure
 to not overlap. They can be next to each other which makes the game tricky.
+Their orientation (Vertical/Horizontal) is also randomized.
 
 You can move through the tiles using the Arrow keys and the current tile
 you are able to interact with is highlighted in yellow.
