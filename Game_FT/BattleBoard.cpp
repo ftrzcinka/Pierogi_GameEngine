@@ -115,8 +115,13 @@ void BattleBoard::moveUp()
 {
 	short prev = activeTile;
 	bool found = false;
+	short counter = 0;
 
 	while (!found) {
+		if (counter > 4) {
+			activeTile += 1;
+		}
+		
 		activeTile -= 6;
 		if (activeTile < 0 || activeTile > 23) {
 			activeTile += 24;
@@ -125,6 +130,7 @@ void BattleBoard::moveUp()
 		if (!Board[activeTile].isHit() && !Board[activeTile].isMissed()) {
 			found = true;
 		}
+		counter++;
 	}
 
 	Board[prev].toggleActive();
@@ -135,8 +141,13 @@ void BattleBoard::moveDown()
 {
 	short prev = activeTile;
 	bool found = false;
+	short counter = 0;
 
 	while (!found) {
+		if (counter > 4) {
+			activeTile -= 1;
+		}
+		
 		activeTile += 6;
 		if (activeTile < 0 || activeTile > 23) {
 			activeTile -= 24;
@@ -145,6 +156,7 @@ void BattleBoard::moveDown()
 		if (!Board[activeTile].isHit() && !Board[activeTile].isMissed()) {
 			found = true;
 		}
+		counter++;
 	}
 
 	Board[prev].toggleActive();
